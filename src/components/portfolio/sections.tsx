@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Mail } from "lucide-react";
 import { ScrollRevealParagraph } from "./scroll-reveal-paragraph";
-import { VentureRibbon } from "./venture-ribbon";
 import serviceFlash from "@/assets/service-flash.jpg";
 import serviceCommunity from "@/assets/service-community.jpg";
 import serviceSankaracharya from "@/assets/service-sankaracharya.jpg";
@@ -198,11 +197,10 @@ export function Awards() {
     <section id="awards" className="border-y border-border bg-secondary/25">
       <div ref={wrapRef} className="relative h-[240vh]">
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-          <VentureRibbon />
-          <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
+          <div className="mx-auto w-full max-w-6xl px-6">
             <SectionTitle light="MY " bold="VENTURES" eyebrow="" />
           </div>
-          <div className="relative z-10 w-full">
+          <div className="w-full">
             <div
               ref={trackRef}
               className="flex items-stretch gap-6 will-change-transform"

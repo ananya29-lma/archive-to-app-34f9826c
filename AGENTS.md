@@ -28,5 +28,3 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
-
-- Keep the ventures ribbon in a decorative SVG component behind the cards, with CSS motion paused offscreen and disabled for reduced motion, so the animation stays lightweight and content remains readable.
