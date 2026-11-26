@@ -680,3 +680,26 @@
   100% { opacity: 1; transform: scale(1); }
 }
 @media (prefers-reduced-motion: reduce) { .experience-zoom { animation: none; } }
+
+/* Ventures: golden light beam falling from the top-right corner */
+.venture-light { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.venture-light__glow {
+  position: absolute; top: -30vw; right: -22vw; width: 55vw; height: 55vw; border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255,206,120,0.55) 0%, rgba(232,184,96,0.14) 35%, transparent 70%);
+  filter: blur(20px); animation: ventureGlow 7s ease-in-out infinite;
+}
+.venture-light__ray {
+  position: absolute; top: -30%; right: 4%; height: 150%; transform-origin: top center;
+  background: linear-gradient(to bottom, rgba(255,220,150,0.75), rgba(232,184,96,0.18) 55%, transparent 85%);
+  filter: blur(14px); mix-blend-mode: screen; animation: ventureRay 9s ease-in-out infinite;
+}
+.venture-light__ray:nth-child(2) { width: 9rem; rotate: 38deg; animation-delay: 0s; }
+.venture-light__ray:nth-child(3) { width: 4rem; rotate: 46deg; right: 10%; animation-delay: -3s; animation-duration: 11s; }
+.venture-light__ray:nth-child(4) { width: 6rem; rotate: 30deg; right: -2%; animation-delay: -6s; animation-duration: 8s; }
+.venture-light__ray:nth-child(5) { width: 2.5rem; rotate: 54deg; right: 16%; animation-delay: -1.5s; animation-duration: 12s; }
+@keyframes ventureRay {
+  0%, 100% { opacity: 0.35; transform: translateX(0) scaleY(0.92); }
+  50% { opacity: 0.9; transform: translateX(-2.5rem) scaleY(1.05); }
+}
+@keyframes ventureGlow { 0%, 100% { opacity: 0.6; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .venture-light__ray, .venture-light__glow { animation: none; } }
