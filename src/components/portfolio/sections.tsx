@@ -138,6 +138,15 @@ const awards = [
   },
 ];
 
+// Deterministic spark layout (no randomness, keeps SSR and browser in sync)
+const ventureSparks = Array.from({ length: 34 }, (_, i) => ({
+  r: (i * 37) % 28,
+  t: -10 + ((i * 53) % 30),
+  s: 1.5 + ((i * 7) % 3),
+  d: -((i * 1.3) % 9),
+  dur: 6 + ((i * 11) % 6),
+}));
+
 export function Awards() {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -194,7 +203,7 @@ export function Awards() {
   }, []);
 
   return (
-    <section id="awards" className="border-y border-border bg-secondary/25">
+    <section id="awards" className="venture-gold-bg border-y border-border">
       <div ref={wrapRef} className="relative h-[240vh]">
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="venture-light" aria-hidden="true">
@@ -203,6 +212,20 @@ export function Awards() {
             <div className="venture-light__ray" />
             <div className="venture-light__ray" />
             <div className="venture-light__ray" />
+            {ventureSparks.map((sp, i) => (
+              <span
+                key={i}
+                className="venture-spark"
+                style={{
+                  right: `${sp.r}%`,
+                  top: `${sp.t}%`,
+                  width: sp.s,
+                  height: sp.s,
+                  animationDelay: `${sp.d}s`,
+                  animationDuration: `${sp.dur}s`,
+                }}
+              />
+            ))}
           </div>
           <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
             <SectionTitle light="MY " bold="VENTURES" eyebrow="" />

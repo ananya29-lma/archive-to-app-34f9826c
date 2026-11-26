@@ -685,12 +685,12 @@
 .venture-light { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
 .venture-light__glow {
   position: absolute; top: -30vw; right: -22vw; width: 55vw; height: 55vw; border-radius: 9999px;
-  background: radial-gradient(circle, rgba(255,206,120,0.55) 0%, rgba(232,184,96,0.14) 35%, transparent 70%);
+  background: radial-gradient(circle, rgba(240,196,110,0.6) 0%, rgba(201,150,62,0.16) 35%, transparent 70%);
   filter: blur(20px); animation: ventureGlow 7s ease-in-out infinite;
 }
 .venture-light__ray {
   position: absolute; top: -30%; right: 4%; height: 150%; transform-origin: top center;
-  background: linear-gradient(to bottom, rgba(255,220,150,0.75), rgba(232,184,96,0.18) 55%, transparent 85%);
+  background: linear-gradient(to bottom, rgba(246,210,140,0.8), rgba(201,150,62,0.2) 55%, transparent 85%);
   filter: blur(14px); mix-blend-mode: screen; animation: ventureRay 9s ease-in-out infinite;
 }
 .venture-light__ray:nth-child(2) { width: 9rem; rotate: 38deg; animation-delay: 0s; }
@@ -703,3 +703,17 @@
 }
 @keyframes ventureGlow { 0%, 100% { opacity: 0.6; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1.06); } }
 @media (prefers-reduced-motion: reduce) { .venture-light__ray, .venture-light__glow { animation: none; } }
+
+.venture-gold-bg { background: radial-gradient(ellipse at 85% 0%, #2a1f0e 0%, #120e08 45%, #0a0806 100%); }
+.venture-spark {
+  position: absolute; border-radius: 9999px; background: #ffe2a3;
+  box-shadow: 0 0 6px 1px rgba(255,205,120,0.8); opacity: 0;
+  animation: ventureSpark 8s linear infinite;
+}
+@keyframes ventureSpark {
+  0% { opacity: 0; transform: translate(0, 0); }
+  15% { opacity: 1; }
+  70% { opacity: 0.7; }
+  100% { opacity: 0; transform: translate(-38vw, 70vh); }
+}
+@media (prefers-reduced-motion: reduce) { .venture-spark { animation: none; opacity: 0.6; } }
